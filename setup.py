@@ -1,8 +1,14 @@
 import csv
 
+ARQUIVO1 = "Arquivo1"
+ARQUIVO2 = "Arquivos2"
+
+NOMEARQUIVO = "Lista"
+
+
 def lerArquivo(arquivo):
     lista = []
-    with open(arquivo, 'r') as conteudo:
+    with open(arquivo + ".csv", 'r') as conteudo:
         leitor = csv.reader(conteudo)
         for item in leitor:
             lista.append(item)
@@ -23,19 +29,14 @@ def criaLista(lista, nome):
 
 def main():
 
-    arquivo1 = "Lista 01.csv"
-    arquivo2 = "Lista 02.csv"
-
-    nomeArquivo = "Lista"
-
-    listaPrincipal = lerArquivo(arquivo1)
-    listaSecundaria = lerArquivo(arquivo2)
+    listaPrincipal = lerArquivo(ARQUIVO1)
+    listaSecundaria = lerArquivo(ARQUIVO2)
 
     listaLimpa = removeItens(listaPrincipal, listaSecundaria)
 
     listaLimpa.sort()
 
-    criaLista(listaLimpa, nomeArquivo)
+    criaLista(listaLimpa, NOMEARQUIVO)
 
     
 
